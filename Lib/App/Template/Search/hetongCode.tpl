@@ -1,0 +1,1 @@
+<input name="hetongCode" type="text" id="hetongCode" value="{$arr_condition.hetongCode}" size="10" placeholder='采购合同'/>

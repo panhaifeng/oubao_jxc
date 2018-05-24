@@ -1,0 +1,1 @@
+<input name="runningNumber" type="text" id="runningNumber" value="{$arr_condition.runningNumber}" size="15" placeholder='收款流水号' placeholder='收款流水号' />

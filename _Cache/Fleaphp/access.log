@@ -1,0 +1,2262 @@
+[2018-05-16 15:15:13 0.12658400] ======= FleaPHP Loaded =======
+[2018-05-16 15:15:13] REQUEST_URI: /oubao_jxc/index.php?controller=Cangku_Xianhuo_CaigouRk&action=Add&caigouId=181
+[2018-05-16 15:15:13] userName: 管理员
+[2018-05-16 15:15:13] [debug] :sql: SELECT VERSION()
+[2018-05-16 15:15:13] [debug] :sql: SET NAMES 'utf8'
+[2018-05-16 15:15:13] [debug] :sql: SHOW FULL COLUMNS FROM `cangku_ruku`
+[2018-05-16 15:15:13] [debug] :sql: SHOW FULL COLUMNS FROM `cangku_ruku2product`
+[2018-05-16 15:15:13] [debug] :sql: SHOW FULL COLUMNS FROM `caigou_order`
+[2018-05-16 15:15:13] [debug] :sql: SHOW FULL COLUMNS FROM `caigou_order2product`
+[2018-05-16 15:15:13] [debug] :sql: SELECT  `caigou_order2product`.`id` AS flea_pkref_id, `caigou_order2product`.* FROM `caigou_order2product`  WHERE `caigou_order2product`.`caigouId` = '181'  ORDER BY productId
+[2018-05-16 15:15:13] [debug] :sql: SHOW FULL COLUMNS FROM `jichu_product`
+[2018-05-16 15:15:13] [debug] :sql: SELECT `caigou_order2product`.`id` AS flea_pkref_id, `jichu_product`.* FROM `jichu_product` LEFT JOIN `caigou_order2product` ON `caigou_order2product`.`id` IN ('3890','3891','3892','3893','3894','3895') WHERE `caigou_order2product`.`productId` = proCode 
+[2018-05-16 15:15:13] [debug] :sql: SELECT `caigou_order2product`.`id` AS flea_pkref_id, `caigou_order`.* FROM `caigou_order` LEFT JOIN `caigou_order2product` ON `caigou_order2product`.`id` IN ('3890','3891','3892','3893','3894','3895') WHERE `caigou_order2product`.`caigouId` = `caigou_order`.`id` 
+[2018-05-16 15:15:13] [debug] :sql: select sum(cnt) as cnt from cangku_ruku2product where cai2proId='3890' group by cai2proId
+[2018-05-16 15:15:13] [debug] :sql: select sum(cnt) as cnt from cangku_ruku2product where cai2proId='3891' group by cai2proId
+[2018-05-16 15:15:13] [debug] :sql: select sum(cnt) as cnt from cangku_ruku2product where cai2proId='3892' group by cai2proId
+[2018-05-16 15:15:13] [debug] :sql: select sum(cnt) as cnt from cangku_ruku2product where cai2proId='3893' group by cai2proId
+[2018-05-16 15:15:13] [debug] :sql: select sum(cnt) as cnt from cangku_ruku2product where cai2proId='3894' group by cai2proId
+[2018-05-16 15:15:13] [debug] :sql: select sum(cnt) as cnt from cangku_ruku2product where cai2proId='3895' group by cai2proId
+[2018-05-16 15:15:14] [debug] :sql: SHOW FULL COLUMNS FROM `jichu_kuwei`
+[2018-05-16 15:15:14] [debug] :sql: SELECT  `jichu_kuwei`.* FROM `jichu_kuwei`  WHERE ckName="现货仓库"  ORDER BY letters
+[2018-05-16 15:15:15 0.26072500] ======= FleaPHP End (elapsed: 2.134141 seconds) =======
+
+[2018-05-16 15:15:49 0.09711200] ======= FleaPHP Loaded =======
+[2018-05-16 15:15:49] REQUEST_URI: /oubao_jxc/index.php?controller=Cangku_Yangpin_CaigouRk&action=Right
+[2018-05-16 15:15:49] userName: 管理员
+[2018-05-16 15:15:49] [debug] :sql: SELECT VERSION()
+[2018-05-16 15:15:49] [debug] :sql: SET NAMES 'utf8'
+[2018-05-16 15:15:49] [debug] :sql: SHOW FULL COLUMNS FROM `cangku_ruku`
+[2018-05-16 15:15:49] [debug] :sql: SHOW FULL COLUMNS FROM `cangku_ruku2product`
+[2018-05-16 15:15:49] [debug] :sql: SHOW FULL COLUMNS FROM `caigou_order`
+[2018-05-16 15:15:49] [debug] :sql: SHOW FULL COLUMNS FROM `caigou_order2product`
+[2018-05-16 15:15:49] [debug] :sql: SHOW FULL COLUMNS FROM `acm_userdb`
+[2018-05-16 15:15:49] [debug] :sql: SELECT  `acm_userdb`.`id` AS flea_pkref_id, `acm_userdb`.* FROM `acm_userdb`  WHERE `acm_userdb`.`id` = 1  LIMIT 1
+[2018-05-16 15:15:49] [debug] :sql: SHOW FULL COLUMNS FROM `acm_roledb`
+[2018-05-16 15:15:49] [debug] :sql: SELECT `acm_user2role`.`userId` AS flea_pkref_id, `acm_roledb`.* FROM `acm_user2role` INNER JOIN `acm_roledb` ON `acm_roledb`.`id` = `acm_user2role`.`roleId`  WHERE `acm_user2role`.`userId` IN ('1')
+[2018-05-16 15:15:49] [debug] :sql: SHOW FULL COLUMNS FROM `jichu_employ`
+[2018-05-16 15:15:49] [debug] :sql: SELECT `acm_user2trader`.`userId` AS flea_pkref_id, `jichu_employ`.* FROM `acm_user2trader` INNER JOIN `jichu_employ` ON `jichu_employ`.`id` = `acm_user2trader`.`traderId`  WHERE `acm_user2trader`.`userId` IN ('1')
+[2018-05-16 15:15:49] [debug] :sql: select x.*,a.compName,e.employName
+            from caigou_order x
+            left join jichu_supplier a on a.id=x.supplierId
+            left join jichu_employ e on e.id=x.employId
+            where 1 and x.shenhe='yes' order by orderCode desc LIMIT 0, 25
+[2018-05-16 15:15:49] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='181'  group by y.id order by proCode asc
+[2018-05-16 15:15:49] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3890' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:49] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3891' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:49] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3892' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:49] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3893' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:49] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3894' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:49] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3895' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:49] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='180'  group by y.id order by proCode asc
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3849' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3850' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3851' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3852' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3853' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3854' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3855' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3856' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3857' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3858' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3859' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3860' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3861' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3862' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3863' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3864' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3865' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3866' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3867' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3868' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3869' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3870' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3871' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3872' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3873' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3874' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3875' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3876' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3877' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3878' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3879' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3880' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3881' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3882' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3883' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3884' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3885' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3886' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3887' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3888' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3889' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='179'  group by y.id order by proCode asc
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3847' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3848' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:51] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='178'  group by y.id order by proCode asc
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3767' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3768' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3769' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3770' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3771' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3772' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3773' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3774' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3775' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3776' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3777' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3778' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3779' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3780' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3781' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3782' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3783' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3784' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3785' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3786' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3787' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3788' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3789' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3790' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3791' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3792' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3793' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3794' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3795' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3796' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3797' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3798' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3799' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3800' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3801' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3802' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3803' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3804' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:54] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3805' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3806' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3807' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3808' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3809' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3810' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3811' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3812' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3813' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3814' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3815' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3816' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3817' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3818' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3819' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3820' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3821' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3822' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3823' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3824' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3825' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3826' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3827' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3828' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3829' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3830' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3831' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3832' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3833' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3834' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3835' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3836' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3837' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3838' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3839' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3840' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3841' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3842' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3843' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3844' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3845' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3846' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='177'  group by y.id order by proCode asc
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3755' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3756' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3757' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3758' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3759' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3760' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3761' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3762' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3763' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3764' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3765' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3766' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='176'  group by y.id order by proCode asc
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3749' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3750' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3751' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3752' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3753' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3754' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:55] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='175'  group by y.id order by proCode asc
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3740' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3741' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3742' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3743' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3744' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3745' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3746' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3747' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3748' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='174'  group by y.id order by proCode asc
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3734' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3735' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3736' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3737' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3738' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3739' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:56] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='173'  group by y.id order by proCode asc
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3712' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3713' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3714' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3715' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3716' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3717' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3718' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3719' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3720' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3721' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3722' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3723' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3724' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3725' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3726' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3727' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3728' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3729' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3730' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3731' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3732' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3733' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:57] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='172'  group by y.id order by proCode asc
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3687' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3688' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3689' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3690' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3691' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3692' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3693' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3694' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3695' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3696' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3697' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3698' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3699' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3700' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3701' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3702' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3703' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3704' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3705' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3706' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3707' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3708' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3709' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3710' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3711' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='171'  group by y.id order by proCode asc
+[2018-05-16 15:15:58] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3686' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:58] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='170'  group by y.id order by proCode asc
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3662' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3663' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3664' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3665' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3666' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3667' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3668' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3669' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3670' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3671' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3672' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3673' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3674' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3675' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3676' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3677' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3678' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3679' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3680' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3681' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3682' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3683' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3684' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3685' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:15:59] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='169'  group by y.id order by proCode asc
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3562' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3563' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3564' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3565' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3566' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3567' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3568' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3569' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3570' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3571' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3572' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3573' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3574' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3575' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3576' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3577' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3578' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3579' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3580' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3581' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3582' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3583' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3584' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3585' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3586' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3587' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3588' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3589' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3590' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3591' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3592' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3593' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3594' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3595' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3596' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3597' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3598' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3599' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3600' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3601' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3602' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3603' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3604' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3605' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3606' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3607' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3608' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3609' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3610' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3611' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3612' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3613' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3614' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3615' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3616' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3617' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3618' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3619' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3620' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3621' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3622' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3623' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3624' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3625' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3626' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3627' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3628' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3629' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3630' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3631' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3632' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3633' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3634' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3635' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3636' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3637' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3638' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3639' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3640' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3641' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3642' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3643' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3644' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3645' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3646' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3647' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3648' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3649' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3650' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3651' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3652' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3653' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3654' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3655' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3656' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3657' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3658' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3659' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3660' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3661' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='168'  group by y.id order by proCode asc
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3561' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='167'  group by y.id order by proCode asc
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3556' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3557' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3558' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3559' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3560' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:03] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='166'  group by y.id order by proCode asc
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3530' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3531' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3532' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3533' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3534' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3535' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3536' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3537' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3538' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3539' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3540' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3541' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3542' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3543' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3544' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3545' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3546' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3547' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3548' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3549' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3550' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3551' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3552' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3553' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3554' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3555' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:04] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='165'  group by y.id order by proCode asc
+[2018-05-16 15:16:05] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3524' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:05] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3525' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:05] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3526' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:05] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3527' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:05] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3528' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:05] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3529' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:05] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='164'  group by y.id order by proCode asc
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3491' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3492' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3493' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3494' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3495' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3496' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3497' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3498' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3499' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3500' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3501' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3502' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3503' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3504' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3505' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3506' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3507' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3508' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3509' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3510' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3511' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3512' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3513' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3514' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3515' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3516' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3517' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3518' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3519' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3520' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3521' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3522' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3523' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='163'  group by y.id order by proCode asc
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3490' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='162'  group by y.id order by proCode asc
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3486' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3487' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3488' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3489' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:06] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='161'  group by y.id order by proCode asc
+[2018-05-16 15:16:06] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3476' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:07] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3477' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:07] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3478' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:07] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3479' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:07] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3480' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:07] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3481' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:07] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3482' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:07] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3483' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:07] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3484' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:07] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3485' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:07] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='160'  group by y.id order by proCode asc
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3432' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3433' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3434' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3435' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3436' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3437' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3438' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3439' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3440' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3441' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3442' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3443' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3444' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3445' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3446' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3447' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3448' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3449' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3450' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3451' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3452' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3453' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3454' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3455' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3456' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3457' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3458' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3459' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3460' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3461' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3462' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3463' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3464' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3465' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3466' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3467' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3468' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3469' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3470' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3471' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3472' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3473' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3474' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3475' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='159'  group by y.id order by proCode asc
+[2018-05-16 15:16:08] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3431' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:08] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='158'  group by y.id order by proCode asc
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3407' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3408' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3409' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3410' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3411' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3412' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3413' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3414' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3415' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3416' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3417' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3418' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3419' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3420' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3421' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3422' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3423' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3424' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3425' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3426' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3427' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3428' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3429' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3430' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: select y.id as sid,y.jiaoqi,z.color,y.cnt,y.unit,y.danjia,y.memo,z.proCode,
+                z.proName,z.chengfen,z.shazhi,z.menfu,CONCAT(z.jingmi,'*',z.weimi) as jwmi,y.rukuOver,
+                r.id as rid
+                from caigou_order2product y
+                left join jichu_product z on z.proCode=y.productId
+                left join cangku_ruku2product r on r.cai2proId=y.id
+                where 1 and y.caigouId='157'  group by y.id order by proCode asc
+[2018-05-16 15:16:09] [debug] :sql: select sum(r.cntM) as rcnt
+                    from  cangku_ruku2product r
+                    left join cangku_ruku rk on rk.id=r.rukuId
+                    where 1 and r.cai2proId='3406' and rk.cangkuName='样品仓库' 
+[2018-05-16 15:16:09] [debug] :sql: SHOW FULL COLUMNS FROM `jichu_supplier`
+[2018-05-16 15:16:09] [debug] :sql: SELECT  `jichu_supplier`.`id` AS flea_pkref_id, `jichu_supplier`.* FROM `jichu_supplier`  WHERE isJiagong=0  ORDER BY convert(trim(compName) USING gbk)
+[2018-05-16 15:16:09] [debug] :sql: SHOW FULL COLUMNS FROM `jichu_supplier_taitou`
+[2018-05-16 15:16:09] [debug] :sql: SELECT `jichu_supplier_taitou`.`supplierId` AS flea_pkref_id, `jichu_supplier_taitou`.* FROM `jichu_supplier_taitou`  WHERE `jichu_supplier_taitou`.`supplierId` IN ('68')
+[2018-05-16 15:16:09] [debug] :sql: SELECT  `jichu_employ`.`id` AS flea_pkref_id, `jichu_employ`.* FROM `jichu_employ`   ORDER BY id
+[2018-05-16 15:16:09] [debug] :sql: SHOW FULL COLUMNS FROM `jichu_department`
+[2018-05-16 15:16:09] [debug] :sql: SELECT `jichu_employ`.`id` AS flea_pkref_id, `jichu_department`.* FROM `jichu_department` LEFT JOIN `jichu_employ` ON `jichu_employ`.`id` IN ('14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52') WHERE `jichu_employ`.`depId` = `jichu_department`.`id` 
+[2018-05-16 15:16:10 0.02050700] ======= FleaPHP End (elapsed: 20.923395 seconds) =======
+
+[2018-05-16 15:16:11 0.91591800] ======= FleaPHP Loaded =======
+[2018-05-16 15:16:12] REQUEST_URI: /oubao_jxc/index.php?controller=Cangku_Yangpin_CaigouRk&action=Add&caigouId=181
+[2018-05-16 15:16:12] userName: 管理员
+[2018-05-16 15:16:12] [debug] :sql: SELECT VERSION()
+[2018-05-16 15:16:12] [debug] :sql: SET NAMES 'utf8'
+[2018-05-16 15:16:12] [debug] :sql: SHOW FULL COLUMNS FROM `cangku_ruku`
+[2018-05-16 15:16:12] [debug] :sql: SHOW FULL COLUMNS FROM `cangku_ruku2product`
+[2018-05-16 15:16:12] [debug] :sql: SHOW FULL COLUMNS FROM `caigou_order`
+[2018-05-16 15:16:12] [debug] :sql: SHOW FULL COLUMNS FROM `caigou_order2product`
+[2018-05-16 15:16:12] [debug] :sql: SELECT  `caigou_order2product`.`id` AS flea_pkref_id, `caigou_order2product`.* FROM `caigou_order2product`  WHERE `caigou_order2product`.`caigouId` = '181'  ORDER BY productId
+[2018-05-16 15:16:12] [debug] :sql: SHOW FULL COLUMNS FROM `jichu_product`
+[2018-05-16 15:16:12] [debug] :sql: SELECT `caigou_order2product`.`id` AS flea_pkref_id, `jichu_product`.* FROM `jichu_product` LEFT JOIN `caigou_order2product` ON `caigou_order2product`.`id` IN ('3890','3891','3892','3893','3894','3895') WHERE `caigou_order2product`.`productId` = proCode 
+[2018-05-16 15:16:12] [debug] :sql: SELECT `caigou_order2product`.`id` AS flea_pkref_id, `caigou_order`.* FROM `caigou_order` LEFT JOIN `caigou_order2product` ON `caigou_order2product`.`id` IN ('3890','3891','3892','3893','3894','3895') WHERE `caigou_order2product`.`caigouId` = `caigou_order`.`id` 
+[2018-05-16 15:16:12] [debug] :sql: select sum(cnt) as cnt from cangku_ruku2product where cai2proId='3890' group by cai2proId
+[2018-05-16 15:16:12] [debug] :sql: select sum(cnt) as cnt from cangku_ruku2product where cai2proId='3891' group by cai2proId
+[2018-05-16 15:16:12] [debug] :sql: select sum(cnt) as cnt from cangku_ruku2product where cai2proId='3892' group by cai2proId
+[2018-05-16 15:16:12] [debug] :sql: select sum(cnt) as cnt from cangku_ruku2product where cai2proId='3893' group by cai2proId
+[2018-05-16 15:16:12] [debug] :sql: select sum(cnt) as cnt from cangku_ruku2product where cai2proId='3894' group by cai2proId
+[2018-05-16 15:16:12] [debug] :sql: select sum(cnt) as cnt from cangku_ruku2product where cai2proId='3895' group by cai2proId
+[2018-05-16 15:16:12] [debug] :sql: SHOW FULL COLUMNS FROM `jichu_kuwei`
+[2018-05-16 15:16:12] [debug] :sql: SELECT  `jichu_kuwei`.* FROM `jichu_kuwei`  WHERE ckName="样品仓库"  ORDER BY letters
+[2018-05-16 15:16:12 0.42490600] ======= FleaPHP End (elapsed: 0.508988 seconds) =======
+
+[2018-05-16 15:16:49 0.57226900] ======= FleaPHP Loaded =======
+[2018-05-16 15:16:49] REQUEST_URI: /oubao_jxc/index.php?controller=Caigou_Shengou&action=Add
+[2018-05-16 15:16:49] userName: 管理员
+[2018-05-16 15:16:49] [debug] :sql: SELECT VERSION()
+[2018-05-16 15:16:49] [debug] :sql: SET NAMES 'utf8'
+[2018-05-16 15:16:49] [debug] :sql: SHOW FULL COLUMNS FROM `caigou_shengou`
+[2018-05-16 15:16:49] [debug] :sql: SHOW FULL COLUMNS FROM `caigou_shengou2product`
+[2018-05-16 15:16:49] [debug] :sql: SHOW FULL COLUMNS FROM `shenhe_db`
+[2018-05-16 15:16:49] [debug] :sql: SHOW FULL COLUMNS FROM `acm_userdb`
+[2018-05-16 15:16:49] [debug] :sql: SELECT  `acm_userdb`.`id` AS flea_pkref_id, `acm_userdb`.* FROM `acm_userdb`  WHERE `acm_userdb`.`id` = 1  LIMIT 1
+[2018-05-16 15:16:49] [debug] :sql: SHOW FULL COLUMNS FROM `acm_roledb`
+[2018-05-16 15:16:49] [debug] :sql: SELECT `acm_user2role`.`userId` AS flea_pkref_id, `acm_roledb`.* FROM `acm_user2role` INNER JOIN `acm_roledb` ON `acm_roledb`.`id` = `acm_user2role`.`roleId`  WHERE `acm_user2role`.`userId` IN ('1')
+[2018-05-16 15:16:49] [debug] :sql: SHOW FULL COLUMNS FROM `jichu_employ`
+[2018-05-16 15:16:49] [debug] :sql: SELECT `acm_user2trader`.`userId` AS flea_pkref_id, `jichu_employ`.* FROM `acm_user2trader` INNER JOIN `jichu_employ` ON `jichu_employ`.`id` = `acm_user2trader`.`traderId`  WHERE `acm_user2trader`.`userId` IN ('1')
+[2018-05-16 15:16:49] [debug] :sql: SHOW FULL COLUMNS FROM `jichu_product`
+[2018-05-16 15:16:50] [debug] :sql: SHOW FULL COLUMNS FROM `jichu_supplier`
+[2018-05-16 15:16:50] [debug] :sql: SHOW FULL COLUMNS FROM `jichu_department`
+[2018-05-16 15:16:50] [debug] :sql: SELECT  `jichu_department`.* FROM `jichu_department`  
+[2018-05-16 15:16:50] [debug] :sql: SELECT  `jichu_employ`.`id` AS flea_pkref_id, `jichu_employ`.* FROM `jichu_employ`  WHERE isFire=0 
+[2018-05-16 15:16:50] [debug] :sql: SELECT `jichu_employ`.`id` AS flea_pkref_id, `jichu_department`.* FROM `jichu_department` LEFT JOIN `jichu_employ` ON `jichu_employ`.`id` IN ('14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52') WHERE `jichu_employ`.`depId` = `jichu_department`.`id` 
+[2018-05-16 15:16:50 0.34383000] ======= FleaPHP End (elapsed: 0.771561 seconds) =======
+
+[2018-05-16 15:16:50 0.44983900] ======= FleaPHP Loaded =======
+[2018-05-16 15:16:50] REQUEST_URI: /oubao_jxc/index.php?controller=Caigou_Shengou&action=SelectedChanged&depId=
+[2018-05-16 15:16:50] userName: 管理员
+[2018-05-16 15:16:50] [debug] :sql: SELECT VERSION()
+[2018-05-16 15:16:50] [debug] :sql: SET NAMES 'utf8'
+[2018-05-16 15:16:50] [debug] :sql: select id as employId,employName from jichu_employ where isFire=0
+[2018-05-16 15:16:50 0.48173100] ======= FleaPHP End (elapsed: 0.031892 seconds) =======
+
+[2018-05-16 15:16:55 0.42966400] ======= FleaPHP Loaded =======
+[2018-05-16 15:16:55] REQUEST_URI: /oubao_jxc/index.php?controller=Caigou_Order&action=Add
+[2018-05-16 15:16:55] userName: 管理员
+[2018-05-16 15:16:55] [debug] :sql: SELECT VERSION()
+[2018-05-16 15:16:55] [debug] :sql: SET NAMES 'utf8'
+[2018-05-16 15:16:55] [debug] :sql: SHOW FULL COLUMNS FROM `caigou_order`
+[2018-05-16 15:16:55] [debug] :sql: SHOW FULL COLUMNS FROM `caigou_order2product`
+[2018-05-16 15:16:55] [debug] :sql: SELECT  `acm_userdb`.`id` AS flea_pkref_id, `acm_userdb`.* FROM `acm_userdb`  WHERE `acm_userdb`.`id` = 1  LIMIT 1
+[2018-05-16 15:16:55] [debug] :sql: SELECT `acm_user2role`.`userId` AS flea_pkref_id, `acm_roledb`.* FROM `acm_user2role` INNER JOIN `acm_roledb` ON `acm_roledb`.`id` = `acm_user2role`.`roleId`  WHERE `acm_user2role`.`userId` IN ('1')
+[2018-05-16 15:16:55] [debug] :sql: SELECT `acm_user2trader`.`userId` AS flea_pkref_id, `jichu_employ`.* FROM `acm_user2trader` INNER JOIN `jichu_employ` ON `jichu_employ`.`id` = `acm_user2trader`.`traderId`  WHERE `acm_user2trader`.`userId` IN ('1')
+[2018-05-16 15:16:55] [debug] :sql: SELECT  `jichu_employ`.`id` AS flea_pkref_id, `jichu_employ`.* FROM `jichu_employ`  WHERE isFire=0 
+[2018-05-16 15:16:55] [debug] :sql: SELECT `jichu_employ`.`id` AS flea_pkref_id, `jichu_department`.* FROM `jichu_department` LEFT JOIN `jichu_employ` ON `jichu_employ`.`id` IN ('14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52') WHERE `jichu_employ`.`depId` = `jichu_department`.`id` 
+[2018-05-16 15:16:55 0.75199800] ======= FleaPHP End (elapsed: 0.322334 seconds) =======
+
+[2018-05-16 15:16:55 0.91686700] ======= FleaPHP Loaded =======
+[2018-05-16 15:16:55] REQUEST_URI: /oubao_jxc/index.php?controller=Caigou_Shengou&action=SelectedChanged
+[2018-05-16 15:16:55] userName: 管理员
+[2018-05-16 15:16:55] [debug] :sql: SELECT VERSION()
+[2018-05-16 15:16:55] [debug] :sql: SET NAMES 'utf8'
+[2018-05-16 15:16:55] [debug] :sql: select id as employId,employName from jichu_employ where isFire=0
+[2018-05-16 15:16:55 0.94821500] ======= FleaPHP End (elapsed: 0.031348 seconds) =======
+

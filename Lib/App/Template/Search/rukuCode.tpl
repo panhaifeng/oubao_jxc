@@ -1,0 +1,1 @@
+<input name="rukuCode" type="text" id="rukuCode" value="{$arr_condition.rukuCode}" size="10" placeholder='入库单号'/>

@@ -1,0 +1,2 @@
+ALTER TABLE `trade_order`
+MODIFY COLUMN `ship_status`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '0未发货1已发货2部分发货3部分退货4已退货' AFTER `pay_status`;

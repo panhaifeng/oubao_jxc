@@ -1,0 +1,21 @@
+CREATE TABLE `cangku_rukushenhe` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `clientId` int(10) NOT NULL COMMENT '会员Id',
+  `kind` varchar(30) COLLATE utf8_bin NOT NULL COMMENT '入库类型',
+  `caigouId` int(10) NOT NULL COMMENT '采购合同Id',
+  `rukuCode` varchar(20) CHARACTER SET utf8 NOT NULL COMMENT '入库单号',
+  `cangkuName` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '仓库名称',
+  `kuweiId` int(10) NOT NULL COMMENT '库位Id',
+  `jiagonghuId` int(10) NOT NULL COMMENT '加工户Id',
+  `rukuDate` date NOT NULL COMMENT '入库日期',
+  `isGuozhang` tinyint(1) NOT NULL COMMENT '是否需要过账:0是1否',
+  `isCheck` tinyint(1) NOT NULL COMMENT '审核',
+  `memo` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '备注',
+  `creater` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '创建人',
+  `dt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'dt',
+  PRIMARY KEY (`id`),
+  KEY `rukuCode` (`rukuCode`),
+  KEY `rukuDate` (`rukuDate`),
+  KEY `kuweiId` (`kuweiId`),
+  KEY `kind` (`kind`)
+) ENGINE=MyISAM AUTO_INCREMENT=274 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='入库审核主表';

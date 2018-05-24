@@ -1,0 +1,2 @@
+ALTER TABLE `cangku_chuku`
+ADD COLUMN `print_tpl`  longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '电子面单打印模板' AFTER `creater_mobile`;

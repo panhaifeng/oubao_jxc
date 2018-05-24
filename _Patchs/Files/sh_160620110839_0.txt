@@ -1,0 +1,3 @@
+ALTER TABLE `jichu_product`
+MODIFY COLUMN `colornum`  varchar(30) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '款号' AFTER `pinming`,
+ADD COLUMN `colorsnum`  varchar(30) NOT NULL COMMENT '颜色号' AFTER `pinming`;

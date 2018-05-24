@@ -1,0 +1,8 @@
+CREATE TABLE `jichu_kuqu` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `kuquName` varchar(50) COLLATE utf8_bin NOT NULL COMMENT '仓库+库位的名称',
+  `memo` varchar(50) COLLATE utf8_bin NOT NULL COMMENT '备注',
+  `ckName` varchar(50) COLLATE utf8_bin NOT NULL COMMENT '仓库名称',
+  `kwName` varchar(50) COLLATE utf8_bin NOT NULL COMMENT '库位名称',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5858 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='库区';

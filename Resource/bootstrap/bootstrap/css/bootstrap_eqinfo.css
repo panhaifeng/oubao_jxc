@@ -1,0 +1,43 @@
+/*
+  个性化需求
+*/
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+  padding: 4px 2px 4px 2px;
+}
+
+.form-control {
+    padding: 6px 6px;
+    border-radius: 2px;
+}
+
+.container-min {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 368px) {
+  .container-min {
+    width: 350px;
+  }
+}
+@media (min-width: 568px) {
+  .container-min {
+    width: 550px;
+  }
+}
+@media (min-width: 768px) {
+  .container-min {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container-min {
+    width: 970px;
+  }
+}

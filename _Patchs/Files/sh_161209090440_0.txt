@@ -1,0 +1,2 @@
+ALTER TABLE `caiwu_ar_income`
+ADD COLUMN `payment_id`  varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'EC中的支付单号' AFTER `money`;

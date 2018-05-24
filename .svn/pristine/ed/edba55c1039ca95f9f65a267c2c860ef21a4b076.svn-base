@@ -1,0 +1,2 @@
+ALTER TABLE `caiwu_ar_guozhang`
+MODIFY COLUMN `money`  decimal(15,2) NOT NULL AFTER `_money`;

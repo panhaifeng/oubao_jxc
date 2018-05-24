@@ -1,0 +1,2 @@
+ALTER TABLE `cangku_chuku`
+ADD COLUMN `creater_mobile`  varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '送货人号码' AFTER `dt`

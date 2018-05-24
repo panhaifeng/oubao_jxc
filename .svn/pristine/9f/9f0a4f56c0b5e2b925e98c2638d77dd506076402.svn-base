@@ -1,0 +1,1 @@
+<input name="shengouCode" type="text" id="shengouCode" value="{$arr_condition.shengouCode}" size="10" placeholder='申购单号'/>

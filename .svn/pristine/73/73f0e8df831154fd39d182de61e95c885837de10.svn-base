@@ -1,0 +1,2 @@
+ALTER TABLE `trade_order`
+ADD COLUMN `ShenheTime`  datetime NOT NULL COMMENT '订单审核完成时间' AFTER `orderTime`;

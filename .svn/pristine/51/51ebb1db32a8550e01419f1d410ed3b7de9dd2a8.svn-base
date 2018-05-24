@@ -1,0 +1,2 @@
+ALTER TABLE `caiwu_ar_income`
+CHANGE COLUMN `isChecked` `shenhe`  varchar(10) NOT NULL COMMENT '是否审核过' AFTER `memo`;

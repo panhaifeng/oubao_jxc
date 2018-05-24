@@ -1,0 +1,2 @@
+ALTER TABLE `trade_order`
+ADD COLUMN `shenhe`  varchar(20) NOT NULL COMMENT '审核状态：yes通过，no未通过，空未审核完成' AFTER `is_tax_over`;

@@ -1,0 +1,5 @@
+ALTER TABLE `jichu_product`
+MODIFY COLUMN `shazhi`  varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '纱支' AFTER `weimi`,
+MODIFY COLUMN `color`  varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '颜色' AFTER `shazhi`,
+MODIFY COLUMN `chengfen`  varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '成分' AFTER `kezhong`,
+MODIFY COLUMN `zuzhi`  varchar(40) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '组织大类' AFTER `wuliaoKind`;

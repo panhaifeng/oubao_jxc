@@ -1,0 +1,174 @@
+ html, body {
+    font:normal 12px Arial;
+    margin:0;
+    padding:0;
+    border:0 none;
+    overflow:hidden;
+    height:100%;
+}
+p {
+    /*margin:5px;*/
+}
+
+#loading-mask {
+	background-color:#eeeeee;
+	height:100%;
+	left:0;
+	position:absolute;
+	top:0;
+	width:100%;
+	z-index:20000;
+	background-color:#FFFFFF
+}
+
+#divMsg {
+	/*width:100px; */
+	position:absolute;
+	height: 30px;
+	float:left;
+	font-size: 13px;
+	line-height: 30px;
+	left:45%;
+	/*overflow: hidden;	*/
+	white-space: nowrap;
+	background: none repeat scroll 0 0 #68AF02;
+	color : #ffffff;
+	font-weight:bold;
+	text-align:center;
+	border:1px solid #dCd8d3;
+	margin-top:7px;
+	display:none;
+	padding:0px 14px 0px 14px;
+	border-radius: 2px;
+	z-index:2000000;
+}
+
+#footer {width:100%;padding:1px;font-size:10px;}
+#footer table {width:100%;}
+#footer td {white-space: nowrap;color: #111; padding-top: 3px;}
+#footer img {vertical-align:text-bottom;}
+#footer #divUser {float: left; text-align: right;}
+#footer #divJingyan {float: right;}
+#footer a{
+	color: #111;
+	padding-top: 3px;
+}
+.nav{
+	/*margin-top: -8px;*/
+}
+.nav > li > a{
+	color: #fff;
+	padding: 10px 6px;
+	line-height: 18pt;
+	vertical-align: middle;
+}
+.nav > li > a:hover{
+	color: #333;
+}
+.nav-tabs > li > a:hover{
+	color: #333;
+}
+.nav-tabs > li > a{
+	color: #fff;
+}
+.mailSpan{
+	/*color: #fff;*/
+}
+.badges{
+	border-radius: 45%;
+	padding: 4px 7px 3px 7px;
+	font-size: 12px;
+	color: #fff;
+}
+.tixing{
+	padding: 5px 8px 5px 8px;
+	font-size: 14pt;
+	font-weight: bold;
+}
+.mails{
+	background: #fff;
+	color: green;
+}
+.warning{
+	background: #f0ad4e;
+	color: #fff;
+}
+.danger{
+	background: #F79463;
+	color: #fff;
+}
+/*.x-tab-default-top {
+	border-color: #E5E5E5 !important;
+}*/
+.x-grid-cell-inner{ 
+	line-height:26px;
+	height: 36px;
+	/*border-bottom: 1px solid #efefef;*/
+}
+.x-grid-cell-inner img{
+	margin-top: 0px;
+}
+.x-tree-view{
+	border-right:1px solid #bdbdbd !important;
+	margin-left: -1px;
+}
+
+.x-tree-view::-webkit-scrollbar {
+  -webkit-appearance: none;
+  background-color: rgba(0,0,0, .15);
+  width: 6px;
+  height: 6px;
+}
+
+.x-tree-view::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: rgba(0,0,0, .4);
+}
+#west-panel-placeholder:hover{
+	cursor: pointer;
+	background: #dedede;
+}
+.x-tab.x-tab-active.x-tab-default{
+		border-color: #5BC0DE;
+	background-color: #5BC0DE;
+}
+.x-grid-item-selected{
+    background-color: #E1E6E8;
+}
+.x-grid-item-focused .x-grid-cell-inner:before{
+    border: 0px;
+}
+/*发光字体设置*/
+.guang{
+  text-decoration:none; 
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.danger{
+  -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon1 1.5s ease-in-out infinite alternate;
+  animation: neon1 1.5s ease-in-out infinite alternate; 
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: none;
+}
+.x-tree-icon{
+    /*display: none;*/
+}
+.x-tree-icon-hide{
+    display: none;
+}
+.x-tree-node-text {
+     font-size: 14px;
+    font-family:"新宋体", "宋体"; 
+    /*font-weight: 500;*/
+}
+.glyphicon-tree{
+    color: #666;
+    font-size: 16px;
+    /*margin-top: 5px;*/
+}

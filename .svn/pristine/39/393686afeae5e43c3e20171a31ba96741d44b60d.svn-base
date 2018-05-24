@@ -1,0 +1,12 @@
+ALTER TABLE `cangku_chuku2product`
+ADD INDEX `orderId` (`orderId`) ;
+ALTER TABLE `jichu_client`
+ADD INDEX `memberId` (`member_id`) ;
+ALTER TABLE `caiwu_ar_guozhang`
+ADD INDEX `kind` (`kind`) ;
+ALTER TABLE `cangku_chuku`
+ADD INDEX `isGuozhang` (`isGuozhang`) ;
+ALTER TABLE `trade_order`
+ADD INDEX `pmt_order` (`pmt_order`) ;
+ALTER TABLE `trade_order`
+ADD INDEX `cost_tax` (`cost_tax`) ;

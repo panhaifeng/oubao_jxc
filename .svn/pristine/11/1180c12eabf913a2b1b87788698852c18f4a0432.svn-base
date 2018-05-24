@@ -1,0 +1,1 @@
+<input name="kuquName" type="text" id="kuquName" value="{$arr_condition.kuquName}" size="10" emptyText='库区名称' placeholder='库区名称'>

@@ -1,0 +1,1 @@
+<input name="danhao" type="text" id="danhao" value="{$arr_condition.danhao}" size="10" placeholder='单号'/>

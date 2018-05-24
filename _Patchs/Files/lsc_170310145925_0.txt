@@ -1,0 +1,1 @@
+ALTER TABLE jichu_product ADD `iSameWarpNo` INT COMMENT '同经编号';

@@ -1,0 +1,6 @@
+ALTER TABLE `caiwu_ar_income`
+ADD COLUMN `incomeType`  varchar(10) NOT NULL COMMENT '收款类型，进销存中其他收款登记时用到' AFTER `type`,
+ADD INDEX `incomeType` (`incomeType`) ;
+ALTER TABLE `caiwu_ar_income`
+ADD COLUMN `isChecked`  tinyint(1) NOT NULL COMMENT '是否审核过' AFTER `memo`,
+ADD INDEX `ischecked` (`isChecked`) ;

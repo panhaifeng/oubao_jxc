@@ -1,0 +1,11 @@
+CREATE TABLE `trade_order_message` (
+`messageId`  int(20) NOT NULL AUTO_INCREMENT COMMENT '留言id' ,
+`orderId`  bigint(20) NOT NULL COMMENT '订单号' ,
+`clientId`  int(10) NOT NULL COMMENT '用户id' ,
+`title`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '留言标题' ,
+`content`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL COMMENT '留言内容' ,
+`create_time`  timestamp NOT NULL COMMENT '留言时间' ,
+PRIMARY KEY (`messageId`),
+INDEX `orderId` (`orderId`) USING BTREE 
+)
+COMMENT='订单留言表'

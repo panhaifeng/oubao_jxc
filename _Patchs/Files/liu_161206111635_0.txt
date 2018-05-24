@@ -1,0 +1,3 @@
+ALTER TABLE `jichu_client`
+ADD user_type enum('1','2')
+DEFAULT NULL COMMENT '会员类型'

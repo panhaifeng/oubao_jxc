@@ -1,0 +1,1 @@
+<input name="clientName" type="text" id="clientName" value="{$arr_condition.clientName}" size="20" emptyText='客户名称' placeholder='客户名称'>

@@ -1,0 +1,1 @@
+<input name="dateShenhe" type="text" id="dateShenhe" value="{$arr_condition.dateShenhe}" size="8"  placeholder='审核时间'>

@@ -1,0 +1,19 @@
+<?php
+$_sysMenuMemo = array(
+	/*'100'=>array(
+		'text'=>'特殊权限',
+		'children'=>array(
+			'100-1'=>array('text'=>'查看所有客户')
+		)
+	)*/
+    '3-1-13'=>array(
+        //入库
+        'children'=>array(
+            '3-1-13-1'=>array('text'=>'修改'),
+            '3-1-13-2'=>array('text'=>'删除'),
+            '3-1-13-3'=>array('text'=>'审核'),
+            '3-1-13-4'=>array('text'=>'查看'),
+        )
+    )
+);
+?>

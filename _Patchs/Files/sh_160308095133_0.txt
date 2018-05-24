@@ -1,0 +1,2 @@
+ALTER TABLE `jichu_lidan`
+ADD COLUMN `type`  varchar(20) NOT NULL COMMENT '类别' AFTER `hetongCode`;

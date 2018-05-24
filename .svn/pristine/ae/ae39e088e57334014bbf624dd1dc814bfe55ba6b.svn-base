@@ -1,0 +1,16 @@
+CREATE TABLE `jichu_lidan` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `lidanCode` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '员工编码',
+  `lidanName` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '员工名称',
+  `codeAtlidan` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '简称',
+  `sex` varchar(2) COLLATE utf8_bin NOT NULL DEFAULT '' COMMENT '性别',
+  `mobile` varchar(20) COLLATE utf8_bin NOT NULL COMMENT '手机',
+  `address` varchar(40) COLLATE utf8_bin NOT NULL COMMENT '地址',
+  `dateEnter` date NOT NULL COMMENT '入厂时间',
+  `isFire` tinyint(1) NOT NULL COMMENT '是否离职：1为是',
+  `dateLeave` date NOT NULL COMMENT '离厂时间',
+  `shenfenNo` varchar(30) COLLATE utf8_bin NOT NULL COMMENT '身份证号',
+  `hetongCode` varchar(30) COLLATE utf8_bin NOT NULL COMMENT '劳动合同号',
+  PRIMARY KEY (`id`),
+  KEY `lidanName` (`lidanName`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='理单员档案';

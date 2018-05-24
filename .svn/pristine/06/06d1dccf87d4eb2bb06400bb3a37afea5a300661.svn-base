@@ -1,0 +1,2 @@
+ALTER TABLE `jichu_client`
+ADD COLUMN `lidanId`  int(10) NOT NULL COMMENT '此客户理单员' AFTER `traderId`;

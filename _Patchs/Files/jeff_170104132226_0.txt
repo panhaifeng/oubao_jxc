@@ -1,0 +1,4 @@
+ALTER TABLE `trade_order`
+ADD INDEX `is_delivery` (`is_delivery`) ;
+ALTER TABLE `trade_order`
+ADD INDEX `shenhe` (`shenhe`) ;

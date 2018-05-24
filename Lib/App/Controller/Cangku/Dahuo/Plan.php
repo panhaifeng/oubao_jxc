@@ -1,0 +1,24 @@
+<?php
+/*********************************************************************\
+*  Copyright (c) 2007-2015, TH. All Rights Reserved.
+*  Author :li
+*  FName  :CaigouRk.php
+*  Time   :2015/09/10 13:57:24
+*  Remark :采购入库：处理采购入库的逻辑代码
+\*********************************************************************/
+FLEA::loadClass('Controller_Cangku_Plan');
+class Controller_Cangku_Dahuo_Plan extends Controller_Cangku_Plan{
+
+    function __construct() {
+        parent::__construct();
+        
+        $this->_kind = __CANGKU_3;
+        $this->_type_order = "大货";
+        $this->_is_jiaoyan = false;
+        $this->_mold='Dahuo';
+    }
+    
+}
+
+
+?>

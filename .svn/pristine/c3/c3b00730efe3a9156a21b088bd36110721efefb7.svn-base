@@ -1,0 +1,1 @@
+<input name="proCode" type="text" id="proCode" value="{$arr_condition.proCode}" size="12" emptyText='花型六位号' placeholder='花型六位号'>

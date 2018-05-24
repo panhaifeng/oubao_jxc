@@ -1,0 +1,2 @@
+ALTER TABLE `madan_db`
+ADD COLUMN `kuqu`  varchar(50) NOT NULL COMMENT '库区' AFTER `qrcode`;

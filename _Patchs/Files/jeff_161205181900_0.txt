@@ -1,0 +1,6 @@
+ALTER TABLE `cangku_chuku2product`
+ADD INDEX `orderId` (`orderId`);
+ALTER TABLE `cangku_chuku`
+ADD INDEX `isGuozhang` (`isGuozhang`);
+ALTER TABLE `jichu_client`
+ADD INDEX `memberId` (`member_id`);

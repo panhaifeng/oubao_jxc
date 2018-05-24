@@ -1,0 +1,2 @@
+ALTER TABLE `cangku_chuku`
+ADD COLUMN `pay_type`  tinyint(1) NULL COMMENT '邮费支付方式:1-现付，2-到付，3-月结，4-第三方支付' AFTER `print_tpl`;

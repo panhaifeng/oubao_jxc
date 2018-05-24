@@ -1,0 +1,2 @@
+ALTER TABLE `madan_db`
+ADD COLUMN `kuquId`  varchar(20) NOT NULL COMMENT '库区ID' AFTER `kuqu`;

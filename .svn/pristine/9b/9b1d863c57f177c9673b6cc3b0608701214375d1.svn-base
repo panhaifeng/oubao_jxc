@@ -1,0 +1,16 @@
+<?php
+return array(
+	'compName'=> '易奇信息科技有限公司',
+	'verName'=> 'E7 Manager System V1.1',
+    'ENcompName'=> 'Technologies.Inc',
+	'domain_name'=> '',//配置本机服务器域名地址，也可以设置内网ip
+	'menu'=>'Config/menu.php',//使用的菜单目录
+	'dbDSN' => array(
+        'driver'    => 'mysql',
+        'host'      => '127.0.0.1',
+        'login'     => 'root',
+        'password'  => 'eqinfo',
+        'database'  => 'jxc_oubao'
+    ),
+);
+?>

@@ -1,0 +1,3 @@
+ALTER TABLE `trade_order`
+ADD COLUMN `discount`  decimal(20,3) NULL DEFAULT NULL COMMENT '订单减免金额' AFTER `shenhe`,
+ADD COLUMN `youhui`  decimal(20,3) NULL DEFAULT 0.00 COMMENT '会员总价优惠金额' AFTER `discount`;
