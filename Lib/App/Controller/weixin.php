@@ -24,13 +24,13 @@ class Controller_weixin extends FLEA_Controller_Action {
         echo $echostr;
     }else{
        // $this->reposeMsg();
-        $this->Createmenu();
+        //$this->Createmenu();
     }
     }
 
    
 
-  public function Createmenu(){
+  public function actionCreatemenu(){
     //dump(231);die;
     $data='{  
      "button":[  
@@ -82,16 +82,33 @@ class Controller_weixin extends FLEA_Controller_Action {
  }';      
      $access_token=$this->GetToken();  
      $url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$access_token;    
-    $result=postcurl($url,$data);  
+    $result=$this->postcurl($url,$data);  
      var_dump($result);             
 
   }
-   function actionGetToken(){
+   function GetToken(){
        $url="https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$this->APPID."&secret=".$this->APPSECRET;        
-       $date=postcurl($url);  
+      $date=$this->postcurl($url);  
         $access_token=$date['access_token'];  
        return $access_token;   
 
    }
+
+         //请求接口方法  
+function postcurl($url,$data = null){         
+$ch = curl_init();  
+curl_setopt($ch, CURLOPT_URL, $url);  
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);   
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);  
+   if (!empty($data)){  
+      curl_setopt($ch, CURLOPT_POST, TRUE);  
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $data);  
+   }  
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  
+$output = curl_exec($ch);  
+curl_close($ch);  
+return  $output=json_decode($output,true);            
+} 
+
 
 }
