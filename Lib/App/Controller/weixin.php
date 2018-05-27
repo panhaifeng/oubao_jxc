@@ -1,14 +1,16 @@
 <?php
-namespace Home\Controller;
-use Think\Controller;
-class IndexController extends Controller {
+class Controller_weixin extends FLEA_Controller_Action {
     // public function index()
     // {
     //     $this->show('This is for Wechat','utf-8');
     // }
     //用户首次配置开发环境
-    public function index()
+    function Controller_weixin() {
+
+    }
+    public function actionIndex()
     {
+        //dump(312312);die;
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
         $nonce     = $_GET["nonce"];
