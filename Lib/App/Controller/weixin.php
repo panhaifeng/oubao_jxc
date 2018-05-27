@@ -24,7 +24,7 @@ class Controller_weixin extends FLEA_Controller_Action {
         echo $echostr;
     }else{
        // $this->reposeMsg();
-        //$this->Createmenu();
+       // $this->Createmenu();
     }
     }
 
@@ -36,48 +36,9 @@ class Controller_weixin extends FLEA_Controller_Action {
      "button":[  
      {      
               "type":"view",  
-               "name":"精选课程",  
+               "name":"我的博客",  
               "url":"https://w.url.cn/s/ASOsHnk"  
-     },       
-       
-      {  
-          "name":"优研优选",  
-           "sub_button":[  
-            {      
-               "type":"click",  
-              "name":"院校&导师",  
-           "key":"SCHOOCL_TEACHER"  
-           },  
-           {  
-              "type":"view",  
-              "name":"快速登录",  
-              "url":"http://www.uyanuxuan.com/index.php"  
-            },  
-            {  
-              "type":"view",  
-              "name":"导师计划",  
-               "url":"http://www.uyanuxuan.com/index.php/Home/About/xsjh.html"  
-            }]    },  
-         
-       {  
-          "name":"我的",  
-          "sub_button":[  
-            {      
-               "type":"click",  
-              "name":"联系我们",  
-              "key":"CONTACTUS"  
-           },  
-           {  
-              "type":"view",  
-              "name":"正版软件",  
-              "url":"http://www.xmypage.com/model2_37685.html"  
-           },  
-           {  
-              "type":"view",  
-              "name":"四六级冲刺",  
-               "url":"https://h5.youyinian.cn/"  
-            }]  
-        }        
+     }              
       ]  
  }';      
      $access_token=$this->GetToken();  
